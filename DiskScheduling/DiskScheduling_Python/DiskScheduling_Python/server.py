@@ -11,18 +11,14 @@ def graph(x_value):
     for i in range(1 , len(x_value)):
         y_value[i] = abs(x_value[i] - x_value[i - 1]) * delay + y_value[i - 1]
 
-    plt.plot(x_value , y_value , marker='o' , markersize=12) 
-    
-    plt.xlabel('Track No.s') 
-
-    plt.ylabel('Time taken') 
-     
+    plt.plot(x_value , y_value , marker='o' , markersize=12)    
+    plt.xlabel('Track No.s')
+    plt.ylabel('Time taken')
     plt.title('Disk-Scheduling') 
       
     plt.show()      
 
 # First Come First Serve Disk Scheduling algorithm.
-
 def fcfs(disk_requests , head_position , last_position):
     order = [head_position]
     order.extend(disk_requests)
@@ -123,13 +119,12 @@ if __name__ == "__main__" :
     server_socket = socket.socket()      
     host_name = socket.gethostname()   
     port = 12345
-      
-     
+         
     server_socket.bind((host_name, port))    
-      
-
     server_socket.listen(5)
+    
     print("waiting for the connections.....")
+    
     menu_msg = """
         Choose the disk scheduling algorithm:
         1. First Come First Serve
@@ -140,11 +135,9 @@ if __name__ == "__main__" :
         6. CLOOK 
         
       """   
-             
-    i = 0
+            
+    while (True): 
     
-    while (i < 1): 
-       i += 1
        client_socket , client_addr = server_socket.accept()         
        print ('Connected to : ', client_addr) 
        
