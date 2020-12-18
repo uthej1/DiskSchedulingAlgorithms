@@ -16,8 +16,7 @@ public class Graph extends Application {
         //defining the axes
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
-        /*x = new int[]{1 , 2 , 3 , 5} ;
-        y = new int[]{4 , 5 , 7 , 8} ;*/
+
         xAxis.setLabel("Track No.");
         //creating the chart
         final LineChart<Number,Number> lineChart = 
@@ -25,8 +24,8 @@ public class Graph extends Application {
                 
         lineChart.setTitle("Time");
 
-        lineChart.setAxisSortingPolicy(LineChart.SortingPolicy.NONE);
-        //defining a series
+        lineChart.setAxisSortingPolicy(LineChart.SortingPolicy.NONE); //Asking LineChart not to sort based on x-values
+       
         XYChart.Series series = new XYChart.Series();
         series.setName("Disk Scheduling Algorithms");
         //populating the series with data
