@@ -5,6 +5,7 @@ import java.net.* ;
 import java.io.* ;
 import java.util.* ;
 public class Server {
+	//Checks whether the disk requests has a valid order.
 	private static boolean isValid(int arr[] , int headPosition , int lastPosition) {
 		if (lastPosition < 0 || (headPosition > lastPosition || headPosition < 0)) {
 			return false ;
@@ -17,17 +18,23 @@ public class Server {
 		return true ;
 	}
 	public static void main(String args[]) throws Exception {
-		int port = 3378;
+		int port = Integer.praseInt(args[0]) ;
+		
 		System.out.println("Server waiting for connection") ;
 		ServerSocket server = new ServerSocket(port) ;
 		Socket client = server.accept() ;
+		System.out.println("Client connected to the server") ;
+		
 		ObjectOutputStream os = new ObjectOutputStream(client.getOutputStream()) ;
 		ObjectInputStream is = new ObjectInputStream(client.getInputStream()) ;
+		
 		Message obj = (Message)is.readObject() ;
+		
 		int type = obj.algorithm ;
 		int diskRequests[] = Arrays.copyOfRange(obj.arr , 0 , obj.arr.length) ;
 		int head = obj.headPosition ;
 		int last = obj.lastPosition ;
+		
 		if (!isValid(diskRequests , head , last)) {
 			obj.isValid = false ;
 			os.writeObject(obj) ;
@@ -35,6 +42,7 @@ public class Server {
 			server.close() ;
 			return ;
 		}
+		
 		switch (type) {
 			case 1 : obj.arr = Fcfs.fcfs(diskRequests , head , last) ;
 					break ; 
