@@ -26,9 +26,9 @@ SSTF using Python<br>
 Plot<br>
 ![alt text](https://github.com/uthej1/DiskSchedulingAlgorithms/blob/main/DiskScheduling/Images/sstf.PNG)<br><br>
 LOOK using Java<br>
-![alt text](https://github.com/uthej1/DiskSchedulingAlgorithms/blob/main/DiskScheduling/Images/clook%20eclipse.PNG)<br>
+![alt text](https://github.com/uthej1/DiskSchedulingAlgorithms/blob/main/DiskScheduling/Images/scan%20eclipse.PNG)<br>
 Plot<br>
-![alt text](https://github.com/uthej1/DiskSchedulingAlgorithms/blob/main/DiskScheduling/Images/clook.PNG)
+![alt text](https://github.com/uthej1/DiskSchedulingAlgorithms/blob/main/DiskScheduling/Images/scan.PNG)
 
 # Done by
 J Uday Kumar Reddy, 1602-18-737-055<br>
