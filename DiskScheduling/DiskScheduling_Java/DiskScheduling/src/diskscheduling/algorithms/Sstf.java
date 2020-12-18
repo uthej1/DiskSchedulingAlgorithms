@@ -1,8 +1,12 @@
 package diskscheduling.algorithms ;
-import java.util.* ;
+import java.util.Arrays ;
+import java.util.ArrayList ;
+
 public class Sstf {
+	
 	private static int lowerBound(ArrayList<Integer> arr , int val) {
 		int ans = arr.size() , left = 0 , right = arr.size() - 1 ;
+		
 		while (left <= right) {
 			int mid = (left + right) / 2 ;
 			if (arr.get(mid) < val) {
@@ -12,17 +16,22 @@ public class Sstf {
 				ans = mid ;
 			}
 		}
+		
 		return ans ;
 	}
+	
 	public static int[] sstf(int diskRequests[] , int headPosition , int lastPosition) {
 		ArrayList<Integer> orderAl = new ArrayList<Integer>() ;
 		ArrayList<Integer> diskRequestsAl = new ArrayList<Integer>() ;
+		
 		for (int i : diskRequests) {
 			diskRequestsAl.add(i) ;
 		}
+		
 		diskRequestsAl.add(headPosition) ;
 		Collections.sort(diskRequestsAl) ;
 		int last = lowerBound(diskRequestsAl , headPosition) ;
+		
 		while (diskRequestsAl.size() > 0) {
 			if (last == 0) {
 				orderAl.add(diskRequestsAl.get(0)) ;
@@ -40,10 +49,13 @@ public class Sstf {
 				diskRequestsAl.remove(last_prev) ;
 			}
 		}
+		
 		int order[] = new int[orderAl.size()] ;
+		
 		for (int i = 0 ; i < orderAl.size() ; i++) {
 			order[i] = orderAl.get(i) ;
 		}
+		
 		return order ;
 	}
 }
