@@ -28,7 +28,6 @@ public class Server {
 		int diskRequests[] = Arrays.copyOfRange(obj.arr , 0 , obj.arr.length) ;
 		int head = obj.headPosition ;
 		int last = obj.lastPosition ;
-		System.out.println(head + " " + last + " " + type) ;
 		if (!isValid(diskRequests , head , last)) {
 			obj.isValid = false ;
 			os.writeObject(obj) ;
